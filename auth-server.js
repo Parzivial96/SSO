@@ -19,7 +19,7 @@ const auth0Config = {
   domain: 'cts23.us.auth0.com',
   clientID: 'xMmNUwkF9gFlmKK0zRTODVYRuxcpYzyh',
   clientSecret: 'imdbUvRfhAVKP0rG8e9dIjmLlUCgHxnCQmoJ6DCoM1OPpzwa1oq_UvjoE1OoGKhD',
-  callbackURL: 'http://localhost:3000/callback',
+  callbackURL: 'https://ctssso.onrender.com/callback',
 };
 
 passport.use(new Auth0Strategy(auth0Config, (accessToken, refreshToken, extraParams, profile, done) => {
@@ -39,7 +39,7 @@ app.get('/login', (req, res) => {
   const target = req.query.target;
   passport.authenticate('auth0', {
     scope: 'openid email profile',
-    callbackURL: `http://localhost:3000/callback?target=${encodeURIComponent(target)}`,
+    callbackURL: `https://ctssso.onrender.com/callback?target=${encodeURIComponent(target)}`,
   })(req, res);
 });
 
@@ -69,7 +69,7 @@ app.get('/getToken', (req, res) => {
         res.cookie('ssoToken', token, { maxAge: 3600000 });
         res.redirect(target);
     } else {
-        res.redirect('http://localhost:3000/login?target='+target);
+        res.redirect('https://ctssso.onrender.com/login?target='+target);
     }
   });  
 
