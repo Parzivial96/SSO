@@ -1,0 +1,22 @@
+{
+  "name": "sso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "auth-server.js",
+  "scripts": {
+    "start": "nodemon auth-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-auth0": "^1.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
