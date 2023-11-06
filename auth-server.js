@@ -60,7 +60,7 @@ app.get('/logout', (req, res) => {
 
 app.get('/home', (req, res) => {
   if (req.isAuthenticated()) {
-    res.send(`Welcome, ${req.user.displayName}`);
+    res.json({'token':req.user.emails[0]});
   } else {
     res.send(`Not Authenticated`);
   }
