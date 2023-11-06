@@ -44,6 +44,9 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/login',}), (req, res) => {
+    const payload = req.user.emails[0];
+    const token = jwt.sign(payload, '577eeb3923cd6b6e2fc5904b70ce596e976c73ba812b48f01f6f355c709e4a4e');
+    res.cookie('ssoToken', token, { maxAge: 3600000 });
     const target = req.query.target;
     res.redirect(target);
 });
