@@ -15,7 +15,7 @@
     "jsonwebtoken": "^9.0.2",
     "passport": "^0.6.0",
     "passport-auth0": "^1.4.4",
-    "cors": "^2.85"
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
