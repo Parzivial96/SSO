@@ -5,6 +5,8 @@ const Auth0Strategy = require('passport-auth0');
 const app = express();
 const jwt = require('jsonwebtoken');
 const { json } = require('body-parser');
+var cors = require('cors')
+app.use(cors())
 
 app.use(session({
   secret: '577eeb3923cd6b6e2fc5904b70ce596e976c73ba812b48f01f6f355c709e4a4e',
