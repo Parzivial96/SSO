@@ -60,7 +60,11 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  res.json({'token':req.user.emails[0]});
+  if (req.isAuthenticated()) {
+    res.json({'token':req.user.emails[0]});
+  } else {
+    res.send(`Not Authenticated`);
+  }
 });
 
 app.get('/getToken', (req, res) => {
